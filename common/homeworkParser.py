@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-import config
+import common.config as config
 import uuid
 import datetime
 import time

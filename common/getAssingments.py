@@ -1,6 +1,6 @@
-import librusSession
-import homeworkParser as hp
-import config
+import common.librusSession as librusSession
+import common.homeworkParser as hp
+import common.config as config
 import json
 import sys
 

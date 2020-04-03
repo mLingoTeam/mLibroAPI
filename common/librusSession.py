@@ -1,5 +1,5 @@
 from requests.cookies import cookiejar_from_dict
-import getCookie
+import common.getCookie as getCookie
 from requests import Session
 
 def create(username, password):
