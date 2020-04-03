@@ -37,9 +37,9 @@ def parse(session, html):
 
             if(is_valid(today, task_end)):
                 if(is_today(today, task_end)):
-                    tasks['assingments']['na_dzisiaj'].append(task)
+                    tasks['zadania']['na_dzisiaj'].append(task)
                 else:
-                    tasks['assingments']['pozostale'].append(task)
+                    tasks['zadania']['pozostale'].append(task)
             
     return tasks
 
