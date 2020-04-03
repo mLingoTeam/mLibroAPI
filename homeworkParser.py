@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup
 import config
 import uuid
+import datetime
+import time
 
 cfg = config.load()
 
@@ -9,8 +11,12 @@ def parse(session, html):
     table = soup.find_all('table')[1]
 
     tasks = {
-        'assingments': []
+        'assingments': {
+            'na_dzisiaj': [],
+            'pozostale': []
+        }
     }
+    today = datetime.datetime.today()
 
     for row in table.find_all('tr'):
         columns = row.find_all('td')
@@ -27,7 +33,13 @@ def parse(session, html):
                 'data_zadania': columns[4].get_text().strip(),
                 'termin_oddania': columns[6].get_text().strip()
             }
-            tasks['assingments'].append(task)
+            task_end = datetime.datetime.strptime(task['termin_oddania'], '%Y-%m-%d')
+
+            if(is_valid(today, task_end)):
+                if(is_today(today, task_end)):
+                    tasks['assingments']['na_dzisiaj'].append(task)
+                else:
+                    tasks['assingments']['pozostale'].append(task)
             
     return tasks
 
@@ -42,3 +54,15 @@ def get_task_desc(session, url):
 def get_view_url(attr):
     url = cfg['client_url'] + attr.split('\'')[1]
     return url
+
+def is_valid(today, end_date):
+    if today < end_date:
+        return True
+    else:
+        return False
+
+def is_today(today, end_date):
+    if today == end_date:
+        return True
+    else:
+        return False
