@@ -1,0 +1,8 @@
+{
+    "api_url": "https://api.librus.pl",
+    "client_url": "https://synergia.librus.pl",
+    "client_index": "https://synergia.librus.pl/uczen/index",
+    "timetable_url": "https://synergia.librus.pl/przegladaj_plan_lekcji",
+    "grades_url": "https://synergia.librus.pl/przegladaj_oceny/uczen",
+    "homework_url": "https://synergia.librus.pl/moje_zadania"
+}
