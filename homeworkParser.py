@@ -11,7 +11,7 @@ def parse(session, html):
     table = soup.find_all('table')[1]
 
     tasks = {
-        'assingments': {
+        'zadania': {
             'na_dzisiaj': [],
             'pozostale': []
         }
