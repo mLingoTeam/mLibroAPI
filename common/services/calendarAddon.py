@@ -17,7 +17,7 @@ def sync(tasks):
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials.json', SCOPES)
+                'common/services/credentials.json', SCOPES)
             creds = flow.run_local_server(port=0)
 
     service = build('calendar', 'v3', credentials=creds)
