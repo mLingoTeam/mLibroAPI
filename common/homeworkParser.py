@@ -56,13 +56,13 @@ def get_view_url(attr):
     return url
 
 def is_valid(today, end_date):
-    if today < end_date:
+    if today.strftime('%Y-%m-%d') <= end_date.strftime('%Y-%m-%d'):
         return True
     else:
         return False
 
 def is_today(today, end_date):
-    if today == end_date:
+    if today.strftime('%Y-%m-%d') == end_date.strftime('%Y-%m-%d'):
         return True
     else:
         return False
