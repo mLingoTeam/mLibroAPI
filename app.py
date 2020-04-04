@@ -24,7 +24,7 @@ class index(Resource):
         return 'mLibroAPI'
 
 api.add_resource(get_assingments, '/get_assingments')
-api.add_resource(get_assingments, '/calendar_sync')
+api.add_resource(sync_assingments, '/calendar_sync')
 api.add_resource(index, '/')
 
 if __name__ == "__main__":
