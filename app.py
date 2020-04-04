@@ -5,7 +5,7 @@ app = Flask(__name__)
 api = Api(app)
 
 class get_assingments(Resource):
-    def get(self):
+    def post(self):
         body = request.json
         tasks = getAssingments.get(body['username'], body['password'])
         return tasks
