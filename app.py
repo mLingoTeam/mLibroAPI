@@ -15,7 +15,7 @@ class get_assingments(Resource):
 class sync_assingments(Resource):
     def post(self):
         body = request.json
-        tasks = request['tasks']
+        tasks = body['tasks']
         calendarAddon.sync(tasks)
         return Response(status=200)
 
