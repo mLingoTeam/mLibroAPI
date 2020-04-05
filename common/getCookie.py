@@ -21,7 +21,7 @@ def get(username, password):
         )
 
         if r.status_code is not 200:
-            print("Failed to log in")
+            return None
 
         goTo = r.json()['goTo']
         r = s.get('https://api.librus.pl' + goTo)
