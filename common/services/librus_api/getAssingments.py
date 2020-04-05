@@ -1,5 +1,5 @@
-import common.librusSession as librusSession
-import common.homeworkParser as hp
+import common.services.librus_api.librusSession as librusSession
+import common.services.librus_api.homeworkParser as hp
 import common.config as config
 import json
 import sys

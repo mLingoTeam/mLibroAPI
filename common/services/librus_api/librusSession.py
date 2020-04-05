@@ -1,5 +1,5 @@
 from requests.cookies import cookiejar_from_dict
-import common.getCookie as getCookie
+import common.services.librus_api.getCookie as getCookie
 from requests import Session
 
 def create(username, password):
