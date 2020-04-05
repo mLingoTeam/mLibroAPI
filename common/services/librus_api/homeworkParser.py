@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
 import common.config as config
-import uuid
 import datetime
 import time
 
@@ -17,7 +16,7 @@ def parse(session, html):
         }
     }
     today = datetime.datetime.today()
-
+    index = 1
     for row in table.find_all('tr'):
         columns = row.find_all('td')
         if(len(columns) == 10):
@@ -26,7 +25,6 @@ def parse(session, html):
             url = get_view_url(onclick_attr)
             desc = get_task_desc(session, url)
             task = {
-                "id": str(uuid.uuid4()),
                 'przedmiot': columns[0].get_text().strip(),
                 'tytul': columns[2].get_text().strip(),
                 'tresc': desc,
@@ -36,6 +34,8 @@ def parse(session, html):
             task_end = datetime.datetime.strptime(task['termin_oddania'], '%Y-%m-%d')
 
             if(is_valid(today, task_end)):
+                task['id'] = index
+                index += 1
                 if(is_today(today, task_end)):
                     tasks['zadania']['na_dzisiaj'].append(task)
                 else:
